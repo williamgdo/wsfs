@@ -112,7 +112,8 @@ public class CommandLineInterface {
             exitCli();
 
         if (nextFunction.equalsIgnoreCase("default"))
-            createFs();
+//            createFs();
+            System.out.println("createFs()");
 
         if (nextFunction.equalsIgnoreCase("custom")) {
             // TODO : get user input

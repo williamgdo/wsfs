@@ -1,9 +1,9 @@
 package com.williamgdo.wtfs;
 
-public class FilenameArray {
+public class FilenameTable {
     private final String[] filenames; // Adjust the size as needed
 
-    public FilenameArray(int size) {
+    public FilenameTable(int size) {
         filenames = new String[size];
         // Initialize the array with null
         for (int i = 0; i < size; i++) {
