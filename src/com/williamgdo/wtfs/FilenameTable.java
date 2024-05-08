@@ -20,5 +20,4 @@ public class FilenameTable {
 
     // TODO: Change String to array of char
     // char[][] charArrayArray = new char[5][256];
-
 }

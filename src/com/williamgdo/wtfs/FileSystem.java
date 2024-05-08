@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import static com.williamgdo.wtfs.DefaultValues.DEFAULT_MAX_FILENAME_LENGTH;
 
 public class FileSystem {
-    private Superblock superblock;
+    private final Superblock superblock;
     private FilenameTable filenameTable;
     private InodeTable inodeTable;
     private BlockBitmap blockBitmap;
@@ -92,6 +92,7 @@ public class FileSystem {
         return true;
     }
 
+    // TODO: refact this function in smaller functions
     private void createFile(File file, String filename) {
         // update inodes
         short index = inodeTable.getIndexForFirstFreeInode();
@@ -139,13 +140,18 @@ public class FileSystem {
         return (short) (a / b + ((a % b == 0) ? 0 : 1));
     }
 
+    // TODO: check if returns can return errors alongside exceptions
     public boolean downloadFileFromFileSystem(String filepathInFs, String filepathToDownload) {
         // get file entries
+        // TODO: search for file in table? Make function receive another parameter?
+        // idea: pass inode index and make another function to get inode index from the name
+        // as subtrees not possible currently, could make a list too
+        // as a mockup for testing, I'll pass the first file only (inode at index 0):
         Inode inode = inodeTable.inodes[0];
 
         short[] entries = inode.fatEntries;
 
-        // transfer every byte to a byte stream
+        // transfer every byte to a byte stream and save bytestream into filepathToDownload
         short bufferSize = superblock.getBytesPerSector();
         try (FileOutputStream fos = new FileOutputStream(filepathToDownload)) {
             int offset = 0;
@@ -161,11 +167,10 @@ public class FileSystem {
             throw new RuntimeException(e);
         }
 
-        // save bytestream into filepathToDownload
         return true;
     }
 
-    public void report() {
+    public void printSuperblockReport() {
         System.out.println("Superblock:    ###########################");
         System.out.println("Inodes: " + superblock.getUsedInodeEntries() + "/" + superblock.getTotalInodeEntries());
         System.out.println("Sectors: " + superblock.getUsedInodeEntries() + "/" + superblock.getTotalSectors());

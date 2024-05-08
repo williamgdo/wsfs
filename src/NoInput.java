@@ -7,11 +7,13 @@ public class NoInput {
     public static void main(String[] args) {
         FileSystem fileSystem = new FileSystem();
 
-        fileSystem.uploadFileToFileSystem("example-files/text", "text");
+        fileSystem.uploadFileToFileSystem("files/examples/text", "text");
 
-        fileSystem.report();
+        fileSystem.printSuperblockReport();
 
-        fileSystem.downloadFileFromFileSystem("text", "text2");
+
+
+//        fileSystem.downloadFileFromFileSystem("text", "text2");
     }
 
 }
