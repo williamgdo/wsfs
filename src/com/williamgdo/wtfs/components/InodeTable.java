@@ -1,4 +1,4 @@
-package com.williamgdo.wtfs;
+package com.williamgdo.wtfs.components;
 
 public class InodeTable {
     public Inode[] inodes;
@@ -15,7 +15,14 @@ public class InodeTable {
         return -1;
     }
 
-    public void insertInodeInIndex(Inode inode, int index) {
+    public void insertIntoInodeTable(Inode inode) {
+        short index = getIndexForFirstFreeInode();
+        inode.setId(index);
         inodes[index] = inode;
+//        insertInodeInIndex(inode, index);
     }
+
+//    public void insertInodeInIndex(Inode inode, int index) {
+//        inodes[index] = inode;
+//    }
 }

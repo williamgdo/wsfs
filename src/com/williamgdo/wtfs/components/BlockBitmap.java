@@ -1,4 +1,4 @@
-package com.williamgdo.wtfs;
+package com.williamgdo.wtfs.components;
 
 public class BlockBitmap {
     boolean[] table;

@@ -1,17 +1,15 @@
-package com.williamgdo.wtfs;
+package com.williamgdo.wtfs.components;
 
-import java.io.Serial;
-
-import static com.williamgdo.wtfs.DefaultValues.*;
+import static com.williamgdo.wtfs.utils.DefaultValues.*;
 
 public class Superblock {
 //    @Serial
 //    private static final long serialVersionUID = 0L;
 
-    private short totalSectors;        // Total number of sectors
+    private final short totalSectors;        // Total number of sectors
     private short usedSectors;    // Number of used sectors
-    private short bytesPerSector;     // Number of bytes in each sector, ex: 512, 4096
-    private short totalInodeEntries;     // Total number of inode entries
+    private final short bytesPerSector;     // Number of bytes in each sector, ex: 512, 4096
+    private final short totalInodeEntries;     // Total number of inode entries
     private short usedInodeEntries; // Number of available inode entries
     public short getTotalSectors() {
         return totalSectors;

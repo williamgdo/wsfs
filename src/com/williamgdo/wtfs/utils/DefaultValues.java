@@ -1,4 +1,4 @@
-package com.williamgdo.wtfs;
+package com.williamgdo.wtfs.utils;
 
 public final class DefaultValues {
     // this class purpose is to provide constants used during the application execution

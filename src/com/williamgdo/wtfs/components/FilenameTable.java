@@ -1,4 +1,4 @@
-package com.williamgdo.wtfs;
+package com.williamgdo.wtfs.components;
 
 public class FilenameTable {
     private final String[] filenames; // Adjust the size as needed

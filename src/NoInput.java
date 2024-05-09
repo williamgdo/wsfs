@@ -1,19 +1,16 @@
 import com.williamgdo.wtfs.FileSystem;
-import com.williamgdo.wtfs.Inode;
-
-import java.util.Arrays;
+import com.williamgdo.wtfs.FileSystemFacade;
 
 public class NoInput {
     public static void main(String[] args) {
-        FileSystem fileSystem = new FileSystem();
+        FileSystem fs = new FileSystem();
+        FileSystemFacade fileSystem = new FileSystemFacade(fs);
 
         fileSystem.uploadFileToFileSystem("files/examples/text", "text");
 
-        fileSystem.printSuperblockReport();
+        fs.printReport();
 
-
-
-//        fileSystem.downloadFileFromFileSystem("text", "text2");
+        fileSystem.downloadFileFromFileSystem("text", "files/downloads/text2");
     }
 
 }

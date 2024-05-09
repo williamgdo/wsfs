@@ -1,5 +1,4 @@
-import java.util.Scanner;
-import com.williamgdo.wtfs.CommandLineInterface;
+import com.williamgdo.wtfs.utils.CommandLineInterface;
 
 public class Main {
     public static void main(String[] args) {
